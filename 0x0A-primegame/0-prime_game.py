@@ -18,7 +18,12 @@ def isWinner(x, nums):
                 for i in range(p * p, n+1, p):
                     primes[i] = False
             p += 1
-        return primes.count(True) - 2
+        # Count the primes after the sieve is constructed
+        count = 0
+        for p in range(2, n + 1):
+            if primes[p]:
+                count += 1
+        return count
 
     maria_wins = 0
     ben_wins = 0
